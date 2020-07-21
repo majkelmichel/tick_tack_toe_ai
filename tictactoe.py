@@ -1,4 +1,4 @@
-numbers = '0123456789'
+numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 
 def main():
@@ -26,10 +26,13 @@ def play_game(cells, move):
         choice = input("Enter the coordinates: ")
         choice_list = choice.split(" ")
         print(choice_list)
-        if choice[0] not in numbers or choice[1] not in numbers:
+        try:
+            choice_list[0] = int(choice_list[0])
+            choice_list[1] = int(choice_list[1])
+        except ValueError:
             print("You should enter numbers")
             continue
-        if cells[int(choice[0]) - 1][int(choice[1]) - 1] != ' ':
+        if cells[choice_list[0] - 1][choice_list[1] - 1] != ' ':
             print("This cells is occupied! Choose another one!")
             continue
         if choice[0] not in range(1, 4) or choice[1] not in range(1, 4):
