@@ -67,8 +67,10 @@ class Player:
 
 def main():
     while True:
+        print("To start enter: start [user/easy/medium/hard] [user/easy/medium/hard]")
+        print("To exit type: exit")
         starting_args = input("Input command: ").split(' ')
-        if len(starting_args) == 1 and starting_args == 'exit':
+        if len(starting_args) == 1 and starting_args[0] == 'exit':
             return None
         if len(starting_args) != 3:
             print("Bad parameters!")
